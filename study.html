@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>灰空薄荷 · 文章</title>
+  <title>灰空薄荷 · 学习</title>
   <link rel="icon" href="assets/avatar.svg">
   <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@400;600&display=swap">
   <link rel="stylesheet" href="assets/style.css">
@@ -13,8 +13,8 @@
 
   <main class="container">
     <div class="page-banner">
-      <h1>文章</h1>
-      <p>全部文章：随笔、技术与学习</p>
+      <h1>学习</h1>
+      <p>记录学习过程，也留给后来的你</p>
     </div>
     <div id="post-list"></div>
   </main>
@@ -25,9 +25,9 @@
   <script src="data/posts.js"></script>
   <script src="assets/main.js"></script>
   <script>
-    renderHeader("posts");
+    renderHeader("study");
     renderFooter();
-    renderPostCards(document.getElementById("post-list"), window.POSTS, null);
+    renderPostCards(document.getElementById("post-list"), window.POSTS, "study");
   </script>
 </body>
 </html>

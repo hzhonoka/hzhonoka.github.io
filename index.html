@@ -3,80 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>灰空薄荷 · 碎碎念</title>
+  <title>灰空薄荷</title>
   <link rel="icon" href="assets/avatar.svg">
   <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@400;600&display=swap">
   <link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
-  <header class="site-header" id="site-header"></header>
-
-  <main class="container">
-    <div class="page-banner">
-      <h1>碎碎念</h1>
-      <p>今天也在灰色的天空下，轻轻摇曳</p>
+<body class="landing">
+  <main class="landing-hero">
+    <div class="landing-inner">
+      <p class="landing-hi" id="landing-hi"></p>
+      <h1 class="landing-title" id="landing-title"></h1>
+      <p class="landing-tagline" id="landing-tagline"></p>
+      <p class="landing-welcome" id="landing-welcome"></p>
+      <a class="landing-enter" href="moments.html">进入博客 →</a>
     </div>
-    <div id="timeline"></div>
   </main>
 
-  <footer class="site-footer" id="site-footer"></footer>
-
   <script src="data/config.js"></script>
-  <script src="data/moments.js"></script>
   <script src="assets/main.js"></script>
   <script>
-    renderHeader("moments");
-    renderFooter();
-
-    const cfg = window.SITE_CONFIG;
-    const timeline = document.getElementById("timeline");
-
-    function escapeHtml(s) {
-      return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    }
-
-    window.MOMENTS.forEach(function (m) {
-      const card = document.createElement("article");
-      card.className = "card";
-      const long = m.text.length > 180 || m.text.split("\n").length > 6;
-      card.innerHTML =
-        '<div class="moment-head">' +
-          '<img class="avatar" src="' + cfg.avatar + '" alt="avatar">' +
-          '<div class="moment-meta">' +
-            '<div class="name">' + escapeHtml(cfg.nickname) + "</div>" +
-            '<div class="time">' + m.time + "</div>" +
-          "</div>" +
-        "</div>" +
-        '<div class="moment-body' + (long ? " clamped" : "") + '">' + escapeHtml(m.text) + "</div>" +
-        (long ? '<button class="expand-btn">展开全文 ▾</button>' : "") +
-        '<div class="moment-foot">' +
-          '<button class="comment-toggle">评论</button>' +
-        "</div>" +
-        '<div class="comment-box" style="display:none;"></div>';
-
-      const btn = card.querySelector(".expand-btn");
-      if (btn) {
-        btn.addEventListener("click", function () {
-          const body = card.querySelector(".moment-body");
-          const clamped = body.classList.toggle("clamped");
-          btn.textContent = clamped ? "展开全文 ▾" : "收起 ▴";
-        });
-      }
-
-      const toggle = card.querySelector(".comment-toggle");
-      const box = card.querySelector(".comment-box");
-      toggle.addEventListener("click", function () {
-        const show = box.style.display === "none";
-        box.style.display = show ? "block" : "none";
-        toggle.textContent = show ? "收起评论" : "评论";
-        if (show && !box.dataset.loaded) {
-          box.dataset.loaded = "1";
-          loadGiscus(box, "moment-" + m.id);
-        }
-      });
-
-      timeline.appendChild(card);
-    });
+    const cfg = window.SITE_CONFIG || {};
+    document.getElementById("landing-hi").textContent = cfg.greeting || "你好，欢迎来到";
+    document.getElementById("landing-title").textContent = cfg.siteName || "灰空薄荷";
+    document.getElementById("landing-tagline").textContent = cfg.tagline || "";
+    document.getElementById("landing-welcome").textContent = cfg.welcome || "";
   </script>
 </body>
 </html>

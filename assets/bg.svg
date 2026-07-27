@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b9c2c6"/>
+      <stop offset="0.45" stop-color="#ccd2d2"/>
+      <stop offset="0.75" stop-color="#dee0da"/>
+      <stop offset="1" stop-color="#e8e7df"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9db3a8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#7d968a" stop-opacity="0.55"/>
+    </linearGradient>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+    <filter id="soft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+
+    <!-- 一株薄荷：对生的圆叶，顶端微微弯曲 -->
+    <g id="mint">
+      <path d="M0,0 C-5,-45 7,-85 -2,-132" fill="none" stroke="#5f7f72" stroke-width="3.4" stroke-linecap="round"/>
+      <g fill="#6f8f82">
+        <ellipse cx="-13" cy="-42" rx="11" ry="6" transform="rotate(-32 -13 -42)"/>
+        <ellipse cx="12" cy="-52" rx="11" ry="6" transform="rotate(28 12 -52)"/>
+        <ellipse cx="-14" cy="-76" rx="10" ry="5.6" transform="rotate(-30 -14 -76)"/>
+        <ellipse cx="11" cy="-86" rx="10" ry="5.6" transform="rotate(26 11 -86)"/>
+        <ellipse cx="-12" cy="-108" rx="9" ry="5.2" transform="rotate(-28 -12 -108)"/>
+        <ellipse cx="9" cy="-116" rx="9" ry="5.2" transform="rotate(24 9 -116)"/>
+        <ellipse cx="-3" cy="-136" rx="8" ry="5" transform="rotate(-14 -3 -136)"/>
+      </g>
+    </g>
+    <g id="mint2">
+      <path d="M0,0 C6,-40 -5,-78 3,-118" fill="none" stroke="#547063" stroke-width="3" stroke-linecap="round"/>
+      <g fill="#5d7d70">
+        <ellipse cx="-11" cy="-38" rx="10" ry="5.4" transform="rotate(-30 -11 -38)"/>
+        <ellipse cx="11" cy="-48" rx="10" ry="5.4" transform="rotate(26 11 -48)"/>
+        <ellipse cx="-11" cy="-70" rx="9" ry="5" transform="rotate(-27 -11 -70)"/>
+        <ellipse cx="10" cy="-79" rx="9" ry="5" transform="rotate(24 10 -79)"/>
+        <ellipse cx="0" cy="-106" rx="7.5" ry="4.6" transform="rotate(-10 0 -106)"/>
+      </g>
+    </g>
+    <ellipse id="leaf" rx="8" ry="4.4"/>
+  </defs>
+
+  <!-- 天空 -->
+  <rect width="1600" height="900" fill="url(#sky)"/>
+
+  <!-- 云层：大块柔软的灰 -->
+  <g filter="url(#soft)">
+    <ellipse cx="300" cy="120" rx="340" ry="80" fill="#a8b2b6" opacity="0.55"/>
+    <ellipse cx="1050" cy="90" rx="420" ry="95" fill="#b2babc" opacity="0.5"/>
+    <ellipse cx="1450" cy="230" rx="300" ry="75" fill="#aeb7ba" opacity="0.45"/>
+    <ellipse cx="620" cy="300" rx="380" ry="70" fill="#c3c9c8" opacity="0.6"/>
+    <ellipse cx="180" cy="330" rx="240" ry="55" fill="#c6cbca" opacity="0.55"/>
+    <ellipse cx="1240" cy="360" rx="330" ry="60" fill="#c9cecc" opacity="0.5"/>
+  </g>
+  <g filter="url(#soft2)">
+    <ellipse cx="480" cy="190" rx="200" ry="42" fill="#dde1df" opacity="0.8"/>
+    <ellipse cx="1180" cy="180" rx="240" ry="48" fill="#d8dcda" opacity="0.75"/>
+    <ellipse cx="830" cy="405" rx="260" ry="40" fill="#d5d9d4" opacity="0.7"/>
+    <ellipse cx="90" cy="150" rx="160" ry="38" fill="#c9cfd0" opacity="0.6"/>
+  </g>
+
+  <!-- 远处的飞鸟 -->
+  <g stroke="#77828a" stroke-width="2.6" fill="none" stroke-linecap="round" opacity="0.8">
+    <path d="M1150,300 q9,-9 18,0 q9,-9 18,0"/>
+    <path d="M1210,268 q7,-7 14,0 q7,-7 14,0"/>
+    <path d="M410,240 q8,-8 16,0 q8,-8 16,0"/>
+  </g>
+
+  <!-- 飘落的三片叶子 -->
+  <g fill="#7fa093" opacity="0.85">
+    <use href="#leaf" transform="translate(1290 520) rotate(28)"/>
+    <use href="#leaf" transform="translate(1345 585) rotate(-18) scale(0.85)"/>
+    <use href="#leaf" transform="translate(255 560) rotate(14) scale(0.9)"/>
+  </g>
+
+  <!-- 地面雾气 -->
+  <rect y="700" width="1600" height="200" fill="url(#ground)"/>
+
+  <!-- 薄荷丛 -->
+  <use href="#mint" transform="translate(90 910) scale(1.15)"/>
+  <use href="#mint2" transform="translate(185 905) scale(1.3)"/>
+  <use href="#mint" transform="translate(300 915) scale(0.95) rotate(4)"/>
+  <use href="#mint2" transform="translate(430 908) scale(1.05) rotate(-5)"/>
+  <use href="#mint" transform="translate(560 912) scale(1.35)"/>
+  <use href="#mint2" transform="translate(700 906) scale(0.9) rotate(6)"/>
+  <use href="#mint" transform="translate(810 916) scale(1.05) rotate(-3)"/>
+  <use href="#mint2" transform="translate(950 908) scale(1.25)"/>
+  <use href="#mint" transform="translate(1090 913) scale(0.9) rotate(5)"/>
+  <use href="#mint2" transform="translate(1200 906) scale(1.4) rotate(-4)"/>
+  <use href="#mint" transform="translate(1340 912) scale(1.1)"/>
+  <use href="#mint2" transform="translate(1460 907) scale(1.0) rotate(3)"/>
+  <use href="#mint" transform="translate(1560 914) scale(1.3) rotate(-6)"/>
+</svg>
