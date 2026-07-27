@@ -7,7 +7,7 @@ window.SITE_CONFIG = {
   // 你的昵称（显示在每条碎碎念前面）
   nickname: "hzhonoka",
   // 头像路径（把你的头像图片放到 assets/ 下，改成对应文件名即可）
-  avatar: "assets/avatar.svg",
+  avatar: "assets/avatar.png",
 
   // ============ 主页（门面页）文字 ============
   // 主页背景图：assets/bg.svg，想换成自己的图片就把同名文件覆盖，
