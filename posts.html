@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>灰空薄荷 · 文章</title>
+  <link rel="icon" href="assets/avatar.svg">
+  <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@400;600&display=swap">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header" id="site-header"></header>
+
+  <main class="container">
+    <div class="page-banner">
+      <h1>文章</h1>
+      <p>认真写的东西都放在这里</p>
+    </div>
+    <div id="post-list"></div>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script src="data/config.js"></script>
+  <script src="data/posts.js"></script>
+  <script src="assets/main.js"></script>
+  <script>
+    renderHeader("posts");
+    renderFooter();
+
+    const list = document.getElementById("post-list");
+    window.POSTS.forEach(function (p) {
+      const a = document.createElement("a");
+      a.className = "card post-item";
+      a.href = "post.html?p=" + encodeURIComponent(p.slug);
+      const tags = (p.tags || [])
+        .map((t, i) => `<span class="tag ${i % 2 ? "mint" : ""}">${t}</span>`)
+        .join("");
+      a.innerHTML =
+        `<h2>${p.title}</h2>` +
+        `<div class="post-date">${p.date}</div>` +
+        `<div class="post-excerpt">${p.excerpt || ""}</div>` +
+        (tags ? `<div class="post-tags">${tags}</div>` : "");
+      list.appendChild(a);
+    });
+  </script>
+</body>
+</html>

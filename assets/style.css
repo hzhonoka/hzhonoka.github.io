@@ -1,0 +1,212 @@
+/* ============ 灰空薄荷 · 全局样式 ============ */
+:root {
+  --sage: #6f8f82;          /* 灰薄荷，唯一的强调色 */
+  --sage-dark: #587568;
+  --ink: #383f45;
+  --ink-light: #8b959c;
+  --line: #e3e6e2;
+  --paper: #f5f5f2;
+  --card-bg: #ffffff;
+  --radius: 6px;
+  --serif: "Noto Serif SC", "Songti SC", "SimSun", serif;
+  --sans: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--serif);
+  color: var(--ink);
+  background: var(--paper);
+  min-height: 100vh;
+  line-height: 1.9;
+}
+
+a { color: var(--sage); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--sage-dark); }
+
+::selection { background: rgba(111, 143, 130, 0.18); }
+
+/* ---------- 顶部导航 ---------- */
+.site-header {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner {
+  max-width: 720px; margin: 0 auto; padding: 20px 20px 16px;
+  display: flex; align-items: baseline; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px;
+}
+.site-title {
+  font-family: var(--serif);
+  font-size: 1.35rem; font-weight: 600; color: var(--ink);
+  letter-spacing: 0.12em;
+}
+.site-title small {
+  font-size: 0.72rem; color: var(--ink-light); font-weight: 400;
+  letter-spacing: 0.05em; margin-left: 10px;
+}
+
+.nav { display: flex; gap: 22px; flex-wrap: wrap; }
+.nav a {
+  font-size: 0.88rem; color: var(--ink-light); letter-spacing: 0.08em;
+  padding-bottom: 2px; border-bottom: 1px solid transparent;
+}
+.nav a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+.nav a.active { color: var(--ink); border-bottom-color: var(--sage); }
+
+/* ---------- 主体 ---------- */
+.container { max-width: 720px; margin: 0 auto; padding: 44px 20px 90px; }
+
+.page-banner { margin-bottom: 34px; }
+.page-banner h1 {
+  font-size: 1.45rem; font-weight: 600; letter-spacing: 0.15em; color: var(--ink);
+}
+.page-banner h1::after {
+  content: ""; display: block; width: 34px; height: 2px;
+  background: var(--sage); margin-top: 10px;
+}
+.page-banner p { color: var(--ink-light); font-size: 0.85rem; margin-top: 10px; letter-spacing: 0.04em; }
+
+/* ---------- 卡片 ---------- */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px 26px;
+  margin-bottom: 22px;
+}
+
+/* ---------- 碎碎念时间线 ---------- */
+.moment-head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1px solid var(--line); object-fit: cover; background: #fff;
+  flex-shrink: 0;
+}
+.moment-meta .name { font-weight: 600; color: var(--ink); font-size: 0.92rem; letter-spacing: 0.04em; }
+.moment-meta .time { font-size: 0.76rem; color: var(--ink-light); font-family: var(--sans); letter-spacing: 0.03em; }
+.moment-body { white-space: pre-wrap; word-break: break-word; font-size: 0.95rem; }
+.moment-body.clamped {
+  display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden;
+}
+.expand-btn {
+  background: none; border: none; color: var(--sage); cursor: pointer;
+  font-size: 0.82rem; padding: 6px 0 0; font-family: var(--sans); letter-spacing: 0.05em;
+}
+.expand-btn:hover { color: var(--sage-dark); }
+.moment-foot { margin-top: 10px; }
+.moment-foot button {
+  background: none; border: none; cursor: pointer; font-size: 0.78rem;
+  color: var(--ink-light); font-family: var(--sans); letter-spacing: 0.06em;
+  padding: 0;
+}
+.moment-foot button:hover { color: var(--sage); }
+.comment-box { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 16px; }
+
+/* ---------- 文章列表 ---------- */
+.post-item { display: block; color: inherit; transition: border-color 0.2s; }
+.post-item:hover { border-color: var(--sage); }
+.post-item h2 {
+  font-size: 1.18rem; font-weight: 600; color: var(--ink); letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+.post-item:hover h2 { color: var(--sage-dark); }
+.post-item .post-date {
+  font-size: 0.76rem; color: var(--ink-light); margin: 6px 0 8px;
+  font-family: var(--sans); letter-spacing: 0.08em;
+}
+.post-item .post-excerpt { font-size: 0.9rem; color: var(--ink-light); }
+.post-tags { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+.tag {
+  font-size: 0.72rem; padding: 1px 10px; border-radius: 2px;
+  border: 1px solid var(--line); color: var(--ink-light);
+  font-family: var(--sans); letter-spacing: 0.06em;
+}
+
+/* ---------- 文章正文 ---------- */
+.post-content { font-size: 0.96rem; }
+.post-content h1, .post-content h2, .post-content h3 {
+  font-weight: 600; letter-spacing: 0.08em; margin: 1.8em 0 0.7em; color: var(--ink);
+}
+.post-content h1 { font-size: 1.3rem; }
+.post-content h2 { font-size: 1.15rem; padding-left: 10px; border-left: 3px solid var(--sage); }
+.post-content h3 { font-size: 1.02rem; }
+.post-content p { margin: 0.9em 0; }
+.post-content a { border-bottom: 1px solid var(--sage); }
+.post-content img { max-width: 100%; border-radius: 3px; }
+.post-content hr { border: none; border-top: 1px solid var(--line); margin: 2em 0; }
+.post-content ul, .post-content ol { padding-left: 1.5em; margin: 0.9em 0; }
+.post-content code {
+  background: var(--paper); padding: 2px 6px; border-radius: 3px;
+  font-family: Consolas, "Courier New", monospace; font-size: 0.86em; color: var(--sage-dark);
+}
+.post-content pre {
+  background: #2f363b; color: #dfe6e2; padding: 18px 20px; border-radius: 4px;
+  overflow-x: auto; margin: 1.2em 0; line-height: 1.7;
+}
+.post-content pre code { background: none; color: inherit; padding: 0; }
+.post-content blockquote {
+  border-left: 3px solid var(--sage);
+  margin: 1.4em 0; padding: 4px 0 4px 18px; color: var(--ink-light);
+}
+.back-link {
+  display: inline-block; margin-bottom: 22px; font-size: 0.82rem;
+  font-family: var(--sans); letter-spacing: 0.05em;
+}
+
+/* ---------- 相册 ---------- */
+.album-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 18px;
+}
+.photo-card {
+  background: #fff; border: 1px solid var(--line); border-radius: 3px;
+  padding: 8px 8px 10px;
+  transition: box-shadow 0.25s; cursor: zoom-in;
+}
+.photo-card:hover { box-shadow: 0 6px 20px rgba(56, 63, 69, 0.1); }
+.photo-card img { width: 100%; display: block; aspect-ratio: 4/3; object-fit: cover; filter: saturate(0.85); }
+.photo-card .caption {
+  font-size: 0.78rem; color: var(--ink-light); margin-top: 8px;
+  text-align: center; font-family: var(--sans); letter-spacing: 0.03em;
+}
+
+.lightbox {
+  display: none; position: fixed; inset: 0; z-index: 300;
+  background: rgba(40, 46, 50, 0.85);
+  align-items: center; justify-content: center; cursor: zoom-out;
+}
+.lightbox.show { display: flex; }
+.lightbox img { max-width: 88vw; max-height: 86vh; }
+
+/* ---------- 关于我 ---------- */
+.about-hero { text-align: left; display: flex; align-items: center; gap: 20px; }
+.about-hero .avatar { width: 84px; height: 84px; }
+.about-hero h1 { font-size: 1.35rem; font-weight: 600; letter-spacing: 0.1em; }
+.about-hero .sig { color: var(--ink-light); margin-top: 4px; font-size: 0.88rem; }
+.about-section h2 {
+  font-size: 1.02rem; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 12px;
+  padding-left: 10px; border-left: 3px solid var(--sage);
+}
+.link-list { display: flex; gap: 12px; flex-wrap: wrap; }
+.link-chip {
+  padding: 5px 16px; border: 1px solid var(--line); border-radius: 3px;
+  font-size: 0.85rem; color: var(--ink); font-family: var(--sans); letter-spacing: 0.05em;
+  transition: border-color 0.2s, color 0.2s;
+}
+.link-chip:hover { border-color: var(--sage); color: var(--sage-dark); }
+.skill-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* ---------- 页脚 ---------- */
+.site-footer {
+  text-align: center; padding: 30px 16px 44px; color: var(--ink-light);
+  font-size: 0.76rem; font-family: var(--sans); letter-spacing: 0.1em;
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 560px) {
+  .header-inner { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .card { padding: 18px 20px; }
+  .about-hero { flex-direction: column; align-items: flex-start; }
+  .album-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+}

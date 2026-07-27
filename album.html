@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>灰空薄荷 · 相册</title>
+  <link rel="icon" href="assets/avatar.svg">
+  <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@400;600&display=swap">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header" id="site-header"></header>
+
+  <main class="container">
+    <div class="page-banner">
+      <h1>相册</h1>
+      <p>值得留下来的瞬间</p>
+    </div>
+    <div class="album-grid" id="album-grid"></div>
+  </main>
+
+  <div class="lightbox" id="lightbox"><img id="lightbox-img" alt=""></div>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script src="data/config.js"></script>
+  <script src="data/photos.js"></script>
+  <script src="assets/main.js"></script>
+  <script>
+    renderHeader("album");
+    renderFooter();
+
+    const grid = document.getElementById("album-grid");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    window.PHOTOS.forEach(function (ph) {
+      const div = document.createElement("div");
+      div.className = "photo-card";
+      div.innerHTML = `<img src="${ph.src}" alt="${ph.caption || ""}" loading="lazy">` +
+        (ph.caption ? `<div class="caption">${ph.caption}</div>` : "");
+      div.addEventListener("click", function () {
+        lightboxImg.src = ph.src;
+        lightbox.classList.add("show");
+      });
+      grid.appendChild(div);
+    });
+
+    lightbox.addEventListener("click", () => lightbox.classList.remove("show"));
+  </script>
+</body>
+</html>

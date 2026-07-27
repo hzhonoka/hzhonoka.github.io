@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>灰空薄荷 · 关于我</title>
+  <link rel="icon" href="assets/avatar.svg">
+  <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@400;600&display=swap">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header" id="site-header"></header>
+
+  <main class="container">
+    <div class="page-banner">
+      <h1>关于</h1>
+      <p>一面之词，姑且一读</p>
+    </div>
+
+    <!-- 下面的内容全部改成你自己的介绍！ -->
+    <div class="card about-hero">
+      <img class="avatar" id="about-avatar" src="assets/avatar.svg" alt="avatar">
+      <div>
+        <h1 id="about-name">hzhonoka</h1>
+        <p class="sig">灰色的天空下，薄荷轻轻摇曳。</p>
+      </div>
+    </div>
+
+    <div class="card about-section">
+      <h2>我是谁</h2>
+      <p>在这里写一段自我介绍：你是谁、在做什么、喜欢什么。比如——</p>
+      <p>软件工程专业在读。白天写代码，晚上打游戏、读闲书，天气好就出门看鸟。喜欢一切薄荷味的东西。</p>
+    </div>
+
+    <div class="card about-section">
+      <h2>技能点</h2>
+      <div class="skill-tags">
+        <span class="tag">C++</span>
+        <span class="tag">Python</span>
+        <span class="tag">观鸟</span>
+      </div>
+    </div>
+
+    <div class="card about-section">
+      <h2>找到我</h2>
+      <div class="link-list">
+        <a class="link-chip" href="https://github.com/hzhonoka" target="_blank">GitHub</a>
+        <a class="link-chip" href="#" target="_blank">Bilibili</a>
+        <a class="link-chip" href="#" target="_blank">Steam</a>
+        <a class="link-chip" href="mailto:hi@example.com">邮箱</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script src="data/config.js"></script>
+  <script src="assets/main.js"></script>
+  <script>
+    renderHeader("about");
+    renderFooter();
+    document.getElementById("about-avatar").src = window.SITE_CONFIG.avatar;
+    document.getElementById("about-name").textContent = window.SITE_CONFIG.nickname;
+  </script>
+</body>
+</html>
