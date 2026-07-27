@@ -220,7 +220,10 @@ html.page-leave body { opacity: 0; transition: opacity 0.2s ease; }
 body.landing { background: #c9cfd0; }
 .landing-hero {
   min-height: 100vh;
-  background: url("bg.svg") center / cover no-repeat;
+  /* 背景图加载失败时用渐变兜底，不至于白字糊在灰底上 */
+  background:
+    url("bg.svg") center / cover no-repeat,
+    linear-gradient(180deg, #a9b4b8 0%, #c3cbc9 55%, #b3c4ba 100%);
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   position: relative;

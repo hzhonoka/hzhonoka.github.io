@@ -77,29 +77,22 @@ function renderHeader(activePage) {
 }
 
 /* ---------- 文章列表渲染 ----------
- * 三个列表页（文章/技术/学习）共用这个函数。
- * category 传 "essay" / "tech" / "study" 过滤，传 null 显示全部。 */
-const CATEGORY_LABELS = { essay: "随笔", tech: "技术", study: "学习" };
-
-function renderPostCards(listEl, posts, category) {
-  const filtered = category
-    ? posts.filter((p) => (p.category || "essay") === category)
-    : posts;
-  if (filtered.length === 0) {
+ * 三个列表页（文章/技术/学习）共用这个函数，各传各的数据数组。 */
+function renderPostCards(listEl, posts) {
+  if (!posts || posts.length === 0) {
     listEl.innerHTML =
       '<div class="card"><p style="color:var(--ink-light);font-size:.9rem;">' +
       "这里还没有文章，第一篇正在路上。</p></div>";
     return;
   }
-  filtered.forEach(function (p) {
+  posts.forEach(function (p) {
     const a = document.createElement("a");
     a.className = "card post-item";
     a.href = "post.html?p=" + encodeURIComponent(p.slug);
-    const catLabel = CATEGORY_LABELS[p.category || "essay"] || "随笔";
     const tags = (p.tags || []).map((t) => `<span class="tag">${t}</span>`).join("");
     a.innerHTML =
       `<h2>${p.title}</h2>` +
-      `<div class="post-date">${p.date} · ${catLabel}</div>` +
+      `<div class="post-date">${p.date}</div>` +
       `<div class="post-excerpt">${p.excerpt || ""}</div>` +
       (tags ? `<div class="post-tags">${tags}</div>` : "");
     listEl.appendChild(a);

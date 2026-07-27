@@ -30,13 +30,26 @@
   <script src="https://fastly.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="data/config.js"></script>
   <script src="data/posts.js"></script>
+  <script src="data/tech.js"></script>
+  <script src="data/study.js"></script>
   <script src="assets/main.js"></script>
   <script>
     renderHeader("posts");
     renderFooter();
 
+    // 三个板块的文章都在这里登记，各自的 .md 放在各自的文件夹
+    const SECTIONS = [
+      { list: window.POSTS || [], dir: "posts", back: "posts.html", backLabel: "文章" },
+      { list: window.TECH_POSTS || [], dir: "tech-posts", back: "tech.html", backLabel: "技术" },
+      { list: window.STUDY_POSTS || [], dir: "study-posts", back: "study.html", backLabel: "学习" },
+    ];
+
     const slug = new URLSearchParams(location.search).get("p");
-    const meta = (window.POSTS || []).find((p) => p.slug === slug);
+    let meta = null, section = null;
+    for (const s of SECTIONS) {
+      const found = s.list.find((p) => p.slug === slug);
+      if (found) { meta = found; section = s; break; }
+    }
 
     if (!slug || !meta) {
       document.getElementById("post-title").textContent = "找不到这篇文章";
@@ -46,7 +59,9 @@
       document.title = meta.title + " · 灰空薄荷";
       document.getElementById("post-title").textContent = meta.title;
       document.getElementById("post-date").textContent = meta.date;
-      fetch("posts/" + encodeURIComponent(slug) + ".md")
+      document.querySelector(".back-link").textContent = "← 返回" + section.backLabel;
+      document.querySelector(".back-link").href = section.back;
+      fetch(section.dir + "/" + encodeURIComponent(slug) + ".md")
         .then((r) => {
           if (!r.ok) throw new Error("404");
           return r.text();
@@ -57,7 +72,7 @@
         })
         .catch(() => {
           document.getElementById("post-content").innerHTML =
-            "<p>文章文件加载失败了……检查 posts/" + slug + ".md 是否存在。</p>";
+            "<p>文章文件加载失败了……检查 " + section.dir + "/" + slug + ".md 是否存在。</p>";
         });
     }
   </script>
