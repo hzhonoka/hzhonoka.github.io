@@ -3,6 +3,15 @@
  * 然后在下面最上方加一条记录：slug 填文件名（不带 .md）。
  * 注意逗号别漏掉！ */
 window.STUDY_POSTS = [
+  
+  {
+    slug: "cpp_lesson_1",
+    title: "C++第一课 值语义与对象模型",
+    date: "2026-07-28",
+    excerpt: "值语义，对象住在哪里",
+    tags: ["cppLesson"],
+  },
+
   {
     slug: "markdown-guide",
     title: "写文章小抄：Markdown 常用语法",
