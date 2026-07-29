@@ -3,7 +3,14 @@
  * 然后在下面最上方加一条记录：slug 填文件名（不带 .md）。
  * 注意逗号别漏掉！ */
 window.STUDY_POSTS = [
-  
+  {
+    slug: "cpp_lesson_2",
+    title: "C++第二课 引用与别名机制",
+    date: "2026-07-29",
+    excerpt: "指针，引用",
+    tags: ["cppLesson"],
+  },
+
   {
     slug: "cpp_lesson_1",
     title: "C++第一课 值语义与对象模型",
