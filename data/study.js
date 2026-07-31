@@ -4,6 +4,14 @@
  * 注意逗号别漏掉！ */
 window.STUDY_POSTS = [
   {
+    slug: "cpp_lesson_3",
+    title: "C++第三课 值类别与const正确性",
+    date: "2026-07-31",
+    excerpt: "值类别 const正确性",
+    tags: ["cppLesson"],
+  },
+
+  {
     slug: "cpp_lesson_2",
     title: "C++第二课 引用与别名机制",
     date: "2026-07-29",
