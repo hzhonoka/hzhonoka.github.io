@@ -4,6 +4,14 @@
  * 注意逗号别漏掉！ */
 window.STUDY_POSTS = [
   {
+    slug: "cpp_lesson_4",
+    title: "C++第四课 初始化：对象诞生的那一刻",
+    date: "2026-08-01",
+    excerpt: "初始化 初始化列表 explicit",
+    tags: ["cppLesson"],
+  },
+
+  {
     slug: "cpp_lesson_3",
     title: "C++第三课 值类别与const正确性",
     date: "2026-07-31",
