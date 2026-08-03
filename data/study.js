@@ -4,6 +4,14 @@
  * 注意逗号别漏掉！ */
 window.STUDY_POSTS = [
   {
+    slug: "cpp_lesson_5",
+    title: "C++第五课 析构函数与RAII",
+    date: "2026-08-03",
+    excerpt: "析构 RAII封装 对称顺序",
+    tags: ["cppLesson"],
+  },
+
+  {
     slug: "cpp_lesson_4",
     title: "C++第四课 初始化：对象诞生的那一刻",
     date: "2026-08-01",
