@@ -4,6 +4,14 @@
  * 注意逗号别漏掉！ */
 window.STUDY_POSTS = [
   {
+    slug: "cpp_lesson_6",
+    title: "C++第六课 拷贝构造与拷贝赋值",
+    date: "2026-08-04",
+    excerpt: "拷贝 三法则 RVO返回值优化",
+    tags: ["cppLesson"],
+  },
+
+  {
     slug: "cpp_lesson_5",
     title: "C++第五课 析构函数与RAII",
     date: "2026-08-03",
