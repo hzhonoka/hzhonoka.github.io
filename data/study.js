@@ -4,6 +4,14 @@
  * 注意逗号别漏掉！ */
 window.STUDY_POSTS = [
   {
+    slug: "cpp_lesson_7",
+    title: "C++第七课 移动语义与右值引用",
+    date: "2026-08-05",
+    excerpt: "移动构造 五法则 noexcerpt",
+    tags: ["cppLesson"],
+  },
+
+  {
     slug: "cpp_lesson_6",
     title: "C++第六课 拷贝构造与拷贝赋值",
     date: "2026-08-04",
