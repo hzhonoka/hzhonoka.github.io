@@ -9,7 +9,7 @@ window.POSTS = [
     title: "乡村小记",
     date: "2026-07-30",
     excerpt: "7/26~7/30的日子",
-    tags: ["回乡", "农村","风景"],
+    tags: ["回乡", "农村", "风景"],
   },
   {
     slug: "hello-world",
