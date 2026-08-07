@@ -4,6 +4,14 @@
  * 注意逗号别漏掉！ */
 window.STUDY_POSTS = [
   {
+    slug: "cpp_lesson_9",
+    title: "C++第九课 STL容器精讲（上）",
+    date: "2026-08-07",
+    excerpt: "序列容器 emplace_back优化",
+    tags: ["cppLesson"],
+  },
+
+  {
     slug: "cpp_lesson_8",
     title: "C++第八课 运算符重载",
     date: "2026-08-06",
