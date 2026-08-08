@@ -4,6 +4,13 @@
  * 注意逗号别漏掉！ */
 window.STUDY_POSTS = [
   {
+    slug: "cpp_lesson_10",
+    title: "C++第十课 STL容器精讲（下）",
+    date: "2026-08-08",
+    excerpt: "STL关联容器",
+    tags: ["cppLesson"],
+  },
+  {
     slug: "cpp_lesson_9",
     title: "C++第九课 STL容器精讲（上）",
     date: "2026-08-07",
