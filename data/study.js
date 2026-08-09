@@ -4,6 +4,13 @@
  * 注意逗号别漏掉！ */
 window.STUDY_POSTS = [
   {
+    slug: "cpp_lesson_11",
+    title: "C++第十一课 STL算法与函数对象",
+    date: "2026-08-09",
+    excerpt: "迭代器 函数对象",
+    tags: ["cppLesson"],
+  },
+  {
     slug: "cpp_lesson_10",
     title: "C++第十课 STL容器精讲（下）",
     date: "2026-08-08",
