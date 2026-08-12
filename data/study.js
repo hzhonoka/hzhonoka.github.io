@@ -4,6 +4,13 @@
  * 注意逗号别漏掉！ */
 window.STUDY_POSTS = [
   {
+    slug: "cpp_lesson_12",
+    title: "C++第十二课 智能指针",
+    date: "2026-08-12",
+    excerpt: "智能指针",
+    tags: ["cppLesson"],
+  },
+  {
     slug: "cpp_lesson_11",
     title: "C++第十一课 STL算法与函数对象",
     date: "2026-08-09",
