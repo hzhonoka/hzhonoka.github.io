@@ -4,6 +4,13 @@
  * 注意逗号别漏掉！ */
 window.STUDY_POSTS = [
   {
+    slug: "cpp_lesson_13",
+    title: "C++第十三课 继承与多态",
+    date: "2026-08-14",
+    excerpt: "虚函数 动态绑定",
+    tags: ["cppLesson"],
+  },
+  {
     slug: "cpp_lesson_12",
     title: "C++第十二课 智能指针",
     date: "2026-08-12",
