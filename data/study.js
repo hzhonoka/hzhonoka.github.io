@@ -4,6 +4,13 @@
  * 注意逗号别漏掉！ */
 window.STUDY_POSTS = [
   {
+    slug: "cpp_lesson_14",
+    title: "C++第十四课 模板基础",
+    date: "2026-08-17",
+    excerpt: "类模板 全特化 偏特化",
+    tags: ["cppLesson"],
+  },
+  {
     slug: "cpp_lesson_13",
     title: "C++第十三课 继承与多态",
     date: "2026-08-14",
