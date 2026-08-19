@@ -4,6 +4,13 @@
  * 注意逗号别漏掉！ */
 window.STUDY_POSTS = [
   {
+    slug: "cpp_lesson_15",
+    title: "C++第十五课 异常处理与noexcept",
+    date: "2026-08-19",
+    excerpt: "try-catch-throw 栈展开 异常安全等级",
+    tags: ["cppLesson"],
+  },
+  {
     slug: "cpp_lesson_14",
     title: "C++第十四课 模板基础",
     date: "2026-08-17",
