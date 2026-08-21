@@ -33,3 +33,13 @@ window.TECH_POSTS = [
     tags: ["C++", "笔记"],
   },
 ];
+
+if (typeof renderMathInElement !== 'undefined') {
+  renderMathInElement(document.getElementById('post-content'), {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });
+}
