@@ -3,7 +3,21 @@
  * 然后在下面最上方加一条记录：slug 填文件名（不带 .md）。
  * 注意逗号别漏掉！ */
 window.TECH_POSTS = [
-  //LittleLearner： Language Models Under Pedagogically Controlled Knowledge Exposure
+  //demystifying_agent_skills_notes
+  {
+    slug: "open_addressing_notes",
+    title: "Optimal Bounds for Open Addressing Without Reordering",
+    date: "2026-08-21",
+    excerpt: "在不重新排序元素的前提下，开放寻址哈希表仍可实现远优于传统认知的探测复杂度。",
+    tags: ["算法", "论文笔记"],
+  },
+  {
+    slug: "demystifying_agent_skills_notes",
+    title: "Demystifying Agent Skills: Why They Work—Until They Don’t",
+    date: "2026-08-21",
+    excerpt: "发现 Skill 主要不是注入新知识，而是把嘈杂经验锚定为稳定执行流程；同时揭示了检索精度随库规模暴跌、以及 Skill 在跨框架迁移中的独特优势。",
+    tags: ["agent", "论文笔记"],
+  },
   {
     slug: "LittleLearner： Language Models Under Pedagogically Controlled Knowledge Exposure",
     title: "LittleLearner： Language Models Under Pedagogically Controlled Knowledge Exposure",

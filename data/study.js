@@ -4,6 +4,20 @@
  * 注意逗号别漏掉！ */
 window.STUDY_POSTS = [
   {
+    slug: "cpp_lesson_17",
+    title: "C++第十七课 现代 C++ 特性速览",
+    date: "2026-08-21",
+    excerpt: "语法糖 结构化绑定中的auto constexpr",
+    tags: ["cppLesson"],
+  },
+  {
+    slug: "cpp_lesson_16",
+    title: "C++第十六课 IO流与文件操作",
+    date: "2026-08-20",
+    excerpt: "iostream 流状态位 二进制读写",
+    tags: ["cppLesson"],
+  },
+  {
     slug: "cpp_lesson_15",
     title: "C++第十五课 异常处理与noexcept",
     date: "2026-08-19",
