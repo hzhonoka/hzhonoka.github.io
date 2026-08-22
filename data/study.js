@@ -4,6 +4,13 @@
  * 注意逗号别漏掉！ */
 window.STUDY_POSTS = [
   {
+    slug: "cpp_lesson_18",
+    title: "C++第十八课 多线程基础（final）",
+    date: "2026-08-22",
+    excerpt: "线程创建 数据竞争 memory_order",
+    tags: ["cppLesson"],
+  },
+  {
     slug: "cpp_lesson_17",
     title: "C++第十七课 现代 C++ 特性速览",
     date: "2026-08-21",
