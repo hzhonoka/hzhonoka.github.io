@@ -1,5 +1,3 @@
-# 计算几何第一课 向量基础与浮点精度
-
 > 开一个计算几何的小坑（） 当然我不是竞赛生 所以只能作为一点兴趣先学学 大佬见谅QAQ 欢迎批评指正！
 
 ---
@@ -34,7 +32,7 @@
 struct Point 
 {
     double x,y;
-    Point(double x = 0, y = 0) : x(x),y(y){}
+    Point(double x = 0, double y = 0) : x(x),y(y){}
 };
 ```
 
@@ -252,13 +250,14 @@ int main() {
             ans = max(ans, count);
         }
     }
-    cout<<ans + 2<<endl; // ans是可与选定向量共线的点的个数 因此还需要额外加上初始选择的向量上的两个点 
+    if (n == 1)
+    {
+        cout<<1<<endl; // 特判一下n=1
+    }
+    else
+    {
+        cout<<ans<<endl;
+    }
     return 0;
 }
 ```
-
-
-
-
-
-
