@@ -7,6 +7,8 @@
   <link rel="icon" href="assets/avatar.svg">
   <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@400;600&display=swap">
   <link rel="stylesheet" href="assets/style.css">
+  <!-- ========== 第 1 处：插入 KaTeX 样式 ========== -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 </head>
 <body>
   <header class="site-header" id="site-header"></header>
@@ -33,11 +35,13 @@
   <script src="data/tech.js"></script>
   <script src="data/study.js"></script>
   <script src="assets/main.js"></script>
+  <!-- ========== 第 2 处：插入 KaTeX 脚本 ========== -->
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
   <script>
     renderHeader("posts");
     renderFooter();
 
-    // 三个板块的文章都在这里登记，各自的 .md 放在各自的文件夹
     const SECTIONS = [
       { list: window.POSTS || [], dir: "posts", back: "posts.html", backLabel: "文章" },
       { list: window.TECH_POSTS || [], dir: "tech-posts", back: "tech.html", backLabel: "技术" },
@@ -68,6 +72,14 @@
         })
         .then((md) => {
           document.getElementById("post-content").innerHTML = marked.parse(md);
+          // ========== 第 3 处：marked 完成后，KaTeX 渲染公式 ==========
+          renderMathInElement(document.getElementById("post-content"), {
+            delimiters: [
+              {left: "$$", right: "$$", display: true},
+              {left: "$", right: "$", display: false}
+            ],
+            throwOnError: false
+          });
           loadGiscus(document.getElementById("comments"), "post-" + slug);
         })
         .catch(() => {
