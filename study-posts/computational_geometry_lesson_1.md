@@ -169,7 +169,7 @@ double cross(Point a, Point b)
 
 ## 1.7 练习
 
-[轰炸(1142)](https://www.luogu.com.cn/problem/P1142)
+[轰炸(P1142)](https://www.luogu.com.cn/problem/P1142)
 
 粘贴一下
 
