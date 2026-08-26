@@ -34,6 +34,7 @@
   <script src="data/posts.js"></script>
   <script src="data/tech.js"></script>
   <script src="data/study.js"></script>
+  <script src="data/problems.js"></script>
   <script src="assets/main.js"></script>
   <!-- ========== 第 2 处：插入 KaTeX 脚本 ========== -->
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
@@ -46,6 +47,7 @@
       { list: window.POSTS || [], dir: "posts", back: "posts.html", backLabel: "文章" },
       { list: window.TECH_POSTS || [], dir: "tech-posts", back: "tech.html", backLabel: "技术" },
       { list: window.STUDY_POSTS || [], dir: "study-posts", back: "study.html", backLabel: "学习" },
+      { list: window.PROBLEM_POSTS || [], dir: "problem-posts", back: "problems.html", backLabel: "题目" },
     ];
 
     const slug = new URLSearchParams(location.search).get("p");

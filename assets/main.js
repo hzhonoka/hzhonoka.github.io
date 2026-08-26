@@ -61,6 +61,7 @@ function renderHeader(activePage) {
     { href: "tech.html", label: "技术", key: "tech" },
     { href: "study.html", label: "学习", key: "study" },
     { href: "album.html", label: "相册", key: "album" },
+    { href: "problems.html", label: "题目", key: "problems" },
     { href: "about.html", label: "关于", key: "about" },
   ];
   const nav = pages
