@@ -1,34 +1,70 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
-struct point{
+
+
+struct Point
+{
     int x,y;
 };
+
+int cross(Point a, Point b) 
+{
+    return a.x * b.y - a.y * b.x;
+}
+
+int sgn(int x) 
+{
+    return x > 0 ? 1 : -1;         // 正或负
+}
+
+Point operator-(Point a, Point b) 
+{
+    return {a.x - b.x, a.y - b.y};
+}
+
+bool operator==(Point a, Point b) 
+{
+    return a.x == b.x && a.y == b.y;
+}
+
+bool onsegment(Point a, Point b, Point c) 
+{
+    return cross(b - a, c - a) == 0 && (c.x - a.x) * (c.x - b.x) <= 0 && (c.y - a.y) * (c.y - b.y) <= 0;
+}
+
 int main(){
-    int n; 
-    cin>>n;
-    point p[n];
-    for (int i=0;i<n;i++){
-        cin>>p[i].x>>p[i].y;
+    Point a,b,c,p;
+    scanf("(%d,%d)",&a.x,&a.y);
+    getchar();
+    scanf("(%d,%d)",&b.x,&b.y);
+    getchar();
+    scanf("(%d,%d)",&c.x,&c.y);
+    getchar();
+    scanf("(%d,%d)",&p.x,&p.y);
+    getchar();
+    Point ab = b - a;
+    Point ca = a - c;
+    Point bc = c - b;
+    Point ap = p - a;
+    Point bp = p - b;
+    Point cp = p - c;
+    if (a==p||b==p||c==p)
+    {
+        cout<<4<<endl;
     }
-    int max=0;
-    for (int i=0;i<n-1;i++){
-        for (int j=i+1;j<n;j++){//任取两点i，j，姑且记为I、J吧
-            int cnt=2;//IJ上本就有I、J两点
-            point vec1;//用点坐标代替向量IJ（此处应该有“→”）
-            vec1.x=p[j].x-p[i].x;
-            vec1.y=p[j].y-p[i].y;//IJ=(xj-xi,yj-yi)
-            for (int h=0;h<n;h++){//枚举异于i、j的所有点
-                if (h==i || h==j) continue;
-                point vec2;//同样的方法计算向量IH
-                vec2.x=p[h].x-p[i].x;
-                vec2.y=p[h].y-p[i].y;
-                if (vec1.x*vec2.y==vec1.y*vec2.x){//如果IJ与IH共线，即I、J、H三点共线
-                    cnt++;//直线IJ上的点+1
-                }
-            }
-            if (cnt>max) max=cnt;
-        }
+    else if (onsegment(a,b,p)||onsegment(b,c,p)||onsegment(c,a,p))
+    {
+        cout<<3<<endl;
     }
-    cout<<max;
+    else if (sgn(cross(ab,ap))==sgn(cross(ca,cp))&&sgn(cross(ca,cp))==sgn(cross(bc,bp)))
+    {
+        cout<<1<<endl;
+    }
+    
+    else
+    {
+        cout<<2<<endl;
+    }
     return 0;
 }

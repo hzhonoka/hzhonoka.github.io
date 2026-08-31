@@ -4,6 +4,13 @@
  * 注意逗号别漏掉！ */
 window.STUDY_POSTS = [
   {
+    slug: "computational_geometry_lesson_2",
+    title: "计算几何第二课 叉积与点积",
+    date: "2026-08-31",
+    excerpt: "计算几何基础",
+    tags: ["computationalGeometry"],
+  },
+  {
     slug: "computational_geometry_lesson_1",
     title: "计算几何第一课 向量基础与浮点精度",
     date: "2026-08-22",
