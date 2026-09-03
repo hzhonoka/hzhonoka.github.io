@@ -4,6 +4,13 @@
  * 注意逗号别漏掉！ */
 window.STUDY_POSTS = [
   {
+    slug: "computational_geometry_lesson_3",
+    title: "计算几何第三课 直线、线段与相交",
+    date: "2026-09-03",
+    excerpt: "计算几何基础",
+    tags: ["computationalGeometry"],
+  },
+  {
     slug: "computational_geometry_lesson_2",
     title: "计算几何第二课 叉积与点积",
     date: "2026-08-31",
