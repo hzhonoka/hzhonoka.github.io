@@ -4,6 +4,11 @@
  * 注意每段结尾的逗号别漏掉！ */
 window.MOMENTS = [
   {
+    id: "20260909-1",
+    time: "2026-09-09 14:08",
+    text:"Time to mix drinks and change life.",
+  },
+  {
     id: "20260829-1",
     time: "2026-08-29 21:53",
     text:"「浅い夏よ、終わってくれよ。」",

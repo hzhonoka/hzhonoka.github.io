@@ -2,17 +2,16 @@
 #include <vector>
 #include <set>
 #include <algorithm>
-#include <cmath>
 #include <cstddef>
 using namespace std;
 
 #define int long long
 
 struct Point {
-    long long x, y;
+    int x, y;
 };
 
-long long cross(Point a, Point b) {
+int cross(Point a, Point b) {
     return a.x * b.y - a.y * b.x;
 }
 
@@ -20,7 +19,7 @@ Point operator-(Point a, Point b) {
     return {a.x - b.x, a.y - b.y};
 }
 
-int sgn(long long x) {
+int sgn(int x) {
     if (x == 0) return 0;
     return x > 0 ? 1 : -1;
 }
@@ -33,10 +32,10 @@ bool onSegment(Point a, Point b, Point p) {
 bool intersect(Point a1, Point a2, Point b1, Point b2) {
     Point a = a2 - a1;
     Point b = b2 - b1;
-    long long c1 = cross(a, b1 - a1);
-    long long c2 = cross(a, b2 - a1);
-    long long c3 = cross(b, a1 - b1);
-    long long c4 = cross(b, a2 - b1);
+    int c1 = cross(a, b1 - a1);
+    int c2 = cross(a, b2 - a1);
+    int c3 = cross(b, a1 - b1);
+    int c4 = cross(b, a2 - b1);
     
     if (sgn(c1) * sgn(c2) < 0 && sgn(c3) * sgn(c4) < 0)
         return true;
@@ -50,27 +49,27 @@ bool intersect(Point a1, Point a2, Point b1, Point b2) {
 }
 
 struct Segment {
-    long long id;      // 1-indexed original id
-    long long xl, yl;  // left endpoint
-    long long xr, yr;  // right endpoint
+    int id;      // 1-indexed original id
+    int xl, yl;  // left endpoint
+    int xr, yr;  // right endpoint
     bool vertical;
 };
 
 vector<Segment> seg;
-long long curX;
+int curX;
 
 // numerator of y at x: y(x) * dx, only for non-vertical
-__int128 numAt(long long id, long long x) {
+__int128 numAt(int id, int x) {
     return (__int128)seg[id].yl * (seg[id].xr - seg[id].xl)
          + (__int128)(seg[id].yr - seg[id].yl) * (x - seg[id].xl);
 }
 
-long long dx(long long id) {
+int dx(int id) {
     return seg[id].xr - seg[id].xl;
 }
 
 struct Cmp {
-    bool operator()(long long a, long long b) const {
+    bool operator()(int a, int b) const {
         __int128 left  = numAt(a, curX) * dx(b);
         __int128 right = numAt(b, curX) * dx(a);
         if (left != right) return left < right;
@@ -79,16 +78,16 @@ struct Cmp {
 };
 
 struct Event {
-    long long x;
+    int x;
     int type;          // 0 insert, 1 vertical, 2 remove
-    long long id;      // index in seg
+    int id;      // index in seg
 };
 
 // returns {0,0} if no intersection found
-pair<long long,long long> findAnyIntersection(long long n, long long exclude) {
+pair<int,int> findAnyIntersection(int n, int exclude) {
     vector<Event> ev;
     ev.reserve(2 * n);
-    for (long long i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         if (seg[i].id == exclude) continue;
         if (seg[i].vertical) {
             ev.push_back({seg[i].xl, 1, i});
