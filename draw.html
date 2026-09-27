@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>灰空薄荷 · 抽签</title>
+  <link rel="icon" href="assets/avatar.svg">
+  <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@400;600&display=swap">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header" id="site-header"></header>
+
+  <main class="container">
+    <div class="page-banner">
+      <h1>抽签</h1>
+      <p>摇一摇，看看今天落下来的是哪一句</p>
+    </div>
+
+    <div class="card draw-card">
+      <div class="draw-stage" id="draw-stage">
+        <p class="draw-hint">签筒还是空的……点一下下面的按钮试试</p>
+      </div>
+      <div class="draw-actions">
+        <button class="draw-btn" id="draw-btn">抽一支</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script src="data/config.js"></script>
+  <script src="data/draw.js"></script>
+  <script src="assets/main.js"></script>
+  <script>
+    renderHeader("draw");
+    renderFooter();
+    initRandomDraw(
+      document.getElementById("draw-btn"),
+      document.getElementById("draw-stage"),
+      window.DRAW_LINES || [],
+      "签筒是空的。去 data/draw.js 里写几句吧。"
+    );
+  </script>
+</body>
+</html>

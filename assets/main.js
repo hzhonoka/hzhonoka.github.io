@@ -62,6 +62,8 @@ function renderHeader(activePage) {
     { href: "study.html", label: "学习", key: "study" },
     { href: "album.html", label: "相册", key: "album" },
     { href: "problems.html", label: "题目", key: "problems" },
+    { href: "draw.html", label: "抽签", key: "draw" },
+    { href: "abstract.html", label: "抽象", key: "abstract" },
     { href: "about.html", label: "关于", key: "about" },
   ];
   const nav = pages
@@ -98,6 +100,47 @@ function renderPostCards(listEl, posts) {
       (tags ? `<div class="post-tags">${tags}</div>` : "");
     listEl.appendChild(a);
   });
+}
+
+/* ---------- 随机抽取（抽签 / 抽象 共用） ----------
+ * 点按钮从 lines 里随机抽一条，显示到 stageEl 里；不会连着抽到同一条。
+ * lines 为空时显示 emptyText 作提示。 */
+function initRandomDraw(btnEl, stageEl, lines, emptyText) {
+  let lastIndex = -1;
+
+  function escapeHtml(s) {
+    return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  function pickIndex() {
+    if (lines.length === 0) return -1;
+    if (lines.length === 1) return 0; // 只有一条时没得挑，直接用它
+    let i;
+    do {
+      i = Math.floor(Math.random() * lines.length);
+    } while (i === lastIndex);
+    return i;
+  }
+
+  function draw() {
+    const i = pickIndex();
+
+    if (i < 0) {
+      stageEl.innerHTML = '<p class="draw-empty">' + escapeHtml(emptyText) + "</p>";
+      return;
+    }
+
+    lastIndex = i;
+    stageEl.innerHTML = '<p class="draw-text">' + escapeHtml(String(lines[i])) + "</p>";
+
+    // 重新播一次淡入动画
+    stageEl.classList.remove("draw-in");
+    void stageEl.offsetWidth;
+    stageEl.classList.add("draw-in");
+  }
+
+  btnEl.addEventListener("click", draw);
+  if (lines.length === 0) draw(); // 空数组就别让人点了才知道，直接把提示摆出来
 }
 
 /* ---------- 渲染页脚 ---------- */

@@ -47,7 +47,7 @@ a:hover { color: var(--sage-dark); }
   letter-spacing: 0.05em; margin-left: 10px;
 }
 
-.nav { display: flex; gap: 22px; flex-wrap: wrap; }
+.nav { display: flex; gap: 14px; flex-wrap: wrap; }
 .nav a {
   font-size: 0.88rem; color: var(--ink-light); letter-spacing: 0.08em;
   padding-bottom: 2px; border-bottom: 1px solid transparent;
@@ -278,4 +278,40 @@ body.landing { background: #c9cfd0; }
 }
 @media (max-width: 560px) {
   .landing-title { font-size: 2.1rem; }
+}
+
+/* ---------- 抽签 ---------- */
+.draw-card { text-align: center; }
+.draw-stage {
+  min-height: 130px; display: flex; align-items: center; justify-content: center;
+  padding: 6px 0 20px;
+}
+.draw-text {
+  font-size: 1.02rem; line-height: 2.1; letter-spacing: 0.06em; color: var(--ink);
+  white-space: pre-wrap; word-break: break-word;
+}
+.draw-hint, .draw-empty {
+  font-size: 0.85rem; color: var(--ink-light);
+  font-family: var(--sans); letter-spacing: 0.08em;
+}
+.draw-actions { border-top: 1px solid var(--line); padding-top: 20px; }
+.draw-btn {
+  background: none; border: 1px solid var(--line); border-radius: 3px;
+  padding: 7px 30px; cursor: pointer; color: var(--ink);
+  font-family: var(--sans); font-size: 0.85rem;
+  letter-spacing: 0.2em; text-indent: 0.2em;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.draw-btn:hover {
+  border-color: var(--sage); color: var(--sage-dark);
+  background: rgba(111, 143, 130, 0.06);
+}
+.draw-btn:active { background: rgba(111, 143, 130, 0.12); }
+.draw-in { animation: draw-fade 0.45s ease both; }
+@keyframes draw-fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .draw-in { animation: none; }
 }
