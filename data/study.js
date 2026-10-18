@@ -4,6 +4,13 @@
  * 注意逗号别漏掉！ */
 window.STUDY_POSTS = [
   {
+    slug: "computational_geometry_lesson_4",
+    title: "计算几何第四课 多边形的面积",
+    date: "2026-10-19",
+    excerpt: "计算几何基础",
+    tags: ["computationalGeometry"],
+  },
+  {
     slug: "computational_geometry_lesson_3",
     title: "计算几何第三课 直线、线段与相交",
     date: "2026-09-03",
