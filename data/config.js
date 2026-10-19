@@ -21,7 +21,8 @@ window.SITE_CONFIG = {
  * 没填好之前评论区域会显示提示，不影响其他功能。 */
 window.GISCUS_CONFIG = {
   repo: "hzhonoka/hzhonoka.github.io", // 你的仓库名
-  repoId: "TODO_REPO_ID",              // ← 替换
+  repoId: "R_kgDOTlJifg",              // ← 替换
   category: "General",
-  categoryId: "TODO_CATEGORY_ID",      // ← 替换
+  categoryId: "DIC_kwDOTlJifs4DI87H",      // ← 替换
 };
+
