@@ -25,4 +25,3 @@ window.GISCUS_CONFIG = {
   category: "General",
   categoryId: "DIC_kwDOTlJifs4DI87H",      // ← 替换
 };
-

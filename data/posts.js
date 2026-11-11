@@ -5,6 +5,13 @@
  * 注意逗号别漏掉！ */
 window.POSTS = [
   {
+    slug: "无意识EScape",
+    title: "无意识EScape",
+    date: "2026-11-11",
+    excerpt: "from: 望远镜片",
+    tags: ["过去", "现在", "未来"],
+  },
+  {
     slug: "2026的国庆",
     title: "2026的国庆",
     date: "2026-10-10",
